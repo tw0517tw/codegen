@@ -1,0 +1,22 @@
+overwrite: true
+generates:
+  ./client/graphql.ts:
+    schema: "./schema.graphql"
+    plugins:
+      - typescript
+
+  ./client:
+    schema: "./schema.graphql"
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.ts
+      baseTypesPath: graphql.ts
+    documents:
+      - "./client/**/*.fragments.ts"
+    plugins:
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      documentMode: external
+      importDocumentNodeExternallyFrom: near-operation-file
+      inlineFragmentTypes: combine
