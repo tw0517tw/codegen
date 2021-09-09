@@ -30,3 +30,4 @@ jobs:
 
       - run: yarn
       - run: yarn codegen
+      - run: yarn tsc --noEmit
